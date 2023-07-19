@@ -265,3 +265,123 @@ typedef重新定义名称，当然重新定义后仍然可以使用原有的
 static修饰局部变量，不会被再次赋值，可以简化for循环，不能跨文件使用
 static修饰全局变量，改变了作用范围，只能在一个被使用的源文件中使用
 exturn声明外部符号
+7.19.do while循环 switch语句
+在for循环外部定义的int在其内部不能再使用去定义
+尤其注意分号
+do while循环
+do
+   循环语句
+while（表达式）；
+
+循环练习题
+ 1.
+#include<stdio.h>
+int main()
+{
+ int a=0;
+	scanf_s("%d", &a);
+	int p = 1;
+	for (int i=1; i <= a; i++)
+	{
+		
+		p = p * i;
+	}
+	printf("%d\n", p);
+}
+
+ 2.
+#include<stdio.h>
+int plus(int a)
+{
+
+
+	int p = 1;
+	for (int i = 1; i <= a; i++)
+	{
+		p = p * i;
+	}
+	return p;
+}
+int main()
+{
+	int sum = 0;
+	int num = 0;
+	for (int i = 1; i <= 10; i++)
+	{
+		num = plus(i);
+		sum = sum + num;
+
+	}
+	printf("%d\n", sum);
+	return 0;
+}
+
+
+5.
+#include<stdio.h>
+int main()
+{
+	
+	for (int i = 0; i < 3; i++)
+	{
+		int p = 0;
+		printf("请输入你的密码：\n");
+		scanf_s("%d", &p);
+		if (p==2004)
+		{
+			printf("登陆成功\n");
+			
+		}
+		else
+			printf("请再试一次\n");
+	}
+	
+	return 0;
+}
+
+
+switch
+switch像for循环的简略版，但会多一些变化
+写一个简单的switch
+#include<stdio.h>
+int main()
+{
+	int i = 0;
+	scanf_s("%d", &i);
+	switch (i)//swtich里面必须是整型 不能是float
+	{
+	case(1)://注意case括号里面的
+		printf("工作日");
+		break;//case是入口 break是出口
+	case(2):
+		printf("工作日");
+	case(3):
+		printf("工作日");
+	}
+	return 0;
+}
+
+#include<stdio.h>
+int main()
+{
+	int n = 1;
+	int m = 2;
+	switch (m)
+	{
+	case(1):
+		n++;
+	case(2):
+		n++;
+		m=m+3;
+	case(3):
+		switch (m)
+		{
+		case(5):
+			n++;
+			m++;
+		}
+		printf("%d %d", m, n);
+
+	}
+	return 0;
+}
