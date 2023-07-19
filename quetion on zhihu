@@ -1,0 +1,137 @@
+1.
+#include<stdio.h>
+int main()
+{
+	printf("Programming in C is fun!");
+	return 0;
+}
+2.
+#include<stdio.h>
+int main()
+{
+	printf("****\n");
+	printf("***\n");
+	printf("**\n");
+	printf("*\n");
+	return 0;
+}
+3.
+#include<stdio.h>
+int main()
+{
+	int F = 150;
+	int C = 5 * (F - 32) / 9;
+	printf("fahr = 150, celsius = %d\n", C);
+	return 0;
+}
+4.
+#include<stdio.h>
+int main()
+{
+	int h = 100;
+	int a = 10;
+	int t = 3;
+	int s = 0.5 * a * t * t;
+	if (s < 100)
+		printf("height = %d\n", s);
+	else
+		printf("height=100");
+	return 0;
+}
+5.
+#include<stdio.h>
+int main()
+{
+	int F = 0;
+	scanf_s("%d", &F);//不要随意在取址函数内部加\n
+	int C = 5 * (F - 32) / 9;
+	printf("celsius = %d\n", C);
+	return 0;
+}
+6.
+#include<stdio.h>
+int main()
+{
+	int x = 0;
+	int y = 0;
+	scanf_s("%d %d", &x, &y);
+	if (y != 0)
+	{
+		printf("%d+%d=%d\n", x, y, x + y);
+		printf("%d-%d=%d\n", x, y, x - y);
+		printf("%d*%d=%d\n", x, y, x * y);
+		printf("%d/%d=%d\n", x, y, x / y);
+	}
+	return 0;
+}
+7.
+#include<stdio.h>
+float function(float x)
+{
+
+	if (x != 0)
+		return 1.0 / x;
+	else
+		return 0;
+}
+int main()
+{
+	float a = 0;
+	scanf_s("%f", &a);
+	float f = function(a);
+	printf("f(%.1f)=%.1f", a,f);
+	return 0;
+}
+8.
+#include<stdio.h>
+#include<math.h>
+float function(float x)
+{
+
+	if (x >= 0)
+		return sqrt(x);
+	else
+		return (x+1)*(x+1)+2*x+1.0/x;
+}
+int main()
+{
+	float a = 0;
+	scanf_s("%f", &a);
+	float f = function(a);
+	printf("f(%.2f)=%.2f", a,f);
+	return 0;
+}
+9.
+#include<stdio.h>
+int main()
+{
+	printf("在一行中输入2个整数，分别表示lower和upper的值，中间用空格分开。\n");
+	int l = 0;
+	int u = 0;
+	scanf_s("%d %d",&l, &u);
+	if (l < u && u < 100)
+	{
+		float C1 = 5*(l - 32)/ 9.0;
+		float C2 = 5*(u - 32)/ 9.0;
+		printf("fahr celsius\n");
+		printf("%d %.1f\n", l, C1);
+		printf("%d %.1f\n", u, C2);
+	}
+	else printf("Invalid.");
+	return 0;
+}
+10.
+#include<stdio.h>
+int main()
+{
+	int n = 0;
+	scanf_s("%d", &n);
+	double s = 0.0;
+	
+	for (int i = 1; i<=n;i++)
+	{
+		s += 1.0 / i;
+	}
+	printf("%.6lf\n", s);
+	return 0;
+}
