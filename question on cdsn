@@ -1,0 +1,31 @@
+津津的预算
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    srand((unsigned int)time(0));
+    
+    for (int i = 0; i < 12; i++)
+    {
+        int fixed = 300;
+        int ep = rand() % (350 - 0 + 1) + 0;
+        int left1 = fixed - ep;
+        if (left1 > 100)
+        {
+            int left = left1 % 100;
+            int save = left1 / 100;
+            left1 = left + fixed;
+            printf("%d\n", left);
+        }
+        else
+        {
+            int left = left1;
+            printf("%d\n", left);
+        }
+    
+        printf("%d\n", ep);
+        
+            
+        }
+   
+    return 0;
+}
