@@ -1,0 +1,267 @@
+7.8固定结构 变量 常量
+固定结构
+#include<stdio.h> //注意没有分号
+int main()
+{
+	//运用数据类型申请内存
+	char z = 'm';
+	printf("%c\n",z);//不要忘记打逗号
+	//第二个函数 sizeof判断申请的内存大小
+	printf("%d\n", sizeof(char));//1
+	printf("%d\n", sizeof(int));//4
+	printf("%d\n", sizeof(short));//2
+	printf("%d\n", sizeof(long));//4
+	printf("%d\n", sizeof(long long));//8
+	printf("%d\n", sizeof(float));//4
+	printf("%d\n", sizeof(double));//8
+	//1byte=8bit
+	//1kb=1024byte  mb gb tb pb
+	return 0;
+}
+
+
+变量 常量
+#include<stdio.h>
+int num1 = 0;//全局变量定义在{}前 全局变量的生命周期是整个程序
+int main()
+{
+	int num2 = 0;//局部变量 局部变量的生命周期是进入作用域 出作用域则死亡
+	//输入数据 输入函数scanf 类似python中的input
+	scanf_s("%d%d", &num1, &num2);//取地址符号&  scanf 的功能用一句话来概括就是“通过键盘给程序中的变量赋值”
+	int sum = 0;
+	sum = num1 + num2;
+	printf("sum=%d\n", sum);
+		return 0;
+}
+7.9三种常量 字符串 选择语句以及取址函数
+常量
+#include<stdio.h>
+int main()
+{
+	//const 常属性 const修饰的常变量 变为常值不变
+	const int num = 4;
+	printf("%d\n", num);//f打掉了
+	int arr[1] = { 0 };
+	printf("%d\n", arr);
+
+	return 0;
+}
+
+
+#define定义的常量
+#define MAX 10//在用#define定义常量时不能加 =
+#include<stdio.h>
+int main()
+{
+	int arr[MAX] = { 0 };
+	printf("%d\n", MAX);
+
+	return 0;
+}
+
+
+枚举常量 枚举关键字enum
+#include<stdio.h>
+enum sex {
+	male,
+	female,
+	secret
+};
+//枚举常量
+enum color {
+	red,
+	yellow,
+	blue
+};
+int main()
+{
+	enum sex s = female;
+	enum sex x = male;
+	printf("%d\n", female);
+	printf("%d\n", male);
+	printf("%d\n", secret);
+	printf("%d\n", x);
+	return 0;
+}
+
+
+
+字符串
+
+#include<stdio.h>
+int main()
+{
+	char arr1[] = "abc";//数组 默认字符串里边结尾加了\0 相当于终止符 不占位
+	char arr2[] = {'a','b','c','\0'};
+	printf("%s\n", arr2);//打印字符串用s d是int类型 
+	char arr3[] = "abc";
+	char arr4[] = {'a','b','c' ,0};
+ //转义字符 \0终止符  \t水平制表符 \n换行符 \?  \可以转义\，让其不成为转义字符里面的\ 转义字符都不占位
+	printf("%d\n", strlen(arr3));
+	printf("%s\n",arr4);
+	printf("%d\n", strlen(arr4));
+	printf("c\tsts\888\tsxt.c");
+	return 0;
+}
+
+
+选择语句   还有取址函数
+#include<stdio.h>
+int main()
+{
+	int input= 0;
+	printf("do you want a cup of tea?\n");
+	printf("<1>yes <2>no\n");
+	scanf_s("%d", &input);
+	if(input == 1)
+		printf("you are welcome\n");
+	else
+		printf("that is alright\n");
+	return 0;
+}
+7.15初识while循环 函数 数组
+初识while循环
+#include<stdio.h>
+int main()
+{
+	int line = 0;
+	printf("加入bit\n");
+
+	while (line < 20000)
+	{
+		printf("敲一行代码\n");
+		line++;//重复添加
+	}
+	if(line>=20000)
+
+		printf("好offer");
+	return 0;
+}
+
+函数
+#include<stdio.h>
+Add(int x, int y)
+{
+	int z = x + y;
+		return z;
+}
+int main()
+{
+	int num1 = 0;
+	int num2 = 0;
+	printf("请输入你想要相加的两个数字：\n");
+	scanf_s("%d%d", &num1, &num2);
+	
+	int sum = Add(num1, num2);
+	printf("两个数字的和为%d\n", sum);
+	return 0;
+}
+
+数组
+#include<stdio.h>
+int main()
+{
+	int arr[10] = {1,2,3,4,5,6,7,8,9,10};//定义一个存放十个整数的数组
+	int i = 0;
+		while (i < 10)
+		{
+			printf("%d ", arr[i]);
+			i++;
+			
+	}
+	
+
+	return 0;
+}
+
+
+符号
+#include<stdio.h>
+int main()
+{
+	//int a = 5/2;     //%取余数    /取上的数
+	//printf("%d", a);
+	//位操作
+	//&按位与
+	//|按位或
+	//^按位异或 相同为0，否则为1
+	int a = 0;       //011
+	int b = 5;        //101
+	int c = a & b;    //001   理解与或的关系用二进制带入即可
+	printf("%d\n", !a);
+		return 0;
+}
+7.16.一个简单函数 部分操作符和符号
+写一个简单的函数
+#include<stdio.h>
+int Max(int x, int y)//注意没有分号 而且在梦函数外
+{
+	if (x > y)//没有分号
+		return x;//不需要大括号也不需要print但需要有返回值
+	else
+		return y;
+}
+int main()
+{
+	int num1 = 1;
+	int num2 = 0;
+	int max = 0;
+	scanf_s("%d %d\n",&num1, &num2);//取址函数的&&&不能掉了
+	max=Max(num1,num2);
+	printf("max=%d\n", max);
+	return 0;
+}
+
+
+
+一些符号
+#include<stdio.h>
+int main()
+{
+	//int a = 0;
+	//int是4个字节32个bit
+	//即为00000000000000000000000000000000
+	//int b = ~a;//~对一个数的二进制单位取反
+	//变为11111111111111111111111111111111（补码
+	//源码符号位不变，其余取反，得到反码，反码加1得到补码
+	//反码11111111111111111111111111111110
+	//源码10000000000000000000000000000001
+    //printf("%d", b);//打印的是源码
+	int a = 10;
+	int b = a++;//后置++，先使用a的初始值，即b=10，再用++，a被赋值为11
+	int b = ++a;//前置++，先用++，a被赋值为11后再赋值给b 此时a b均为11
+	//（）强制类型转换
+	// && and
+	// || or
+	print("%d %d\n", a, b);
+
+	return 0;
+}
+
+
+操作符 
+#include<stdio.h>
+int Add(int x, int y)
+{
+	return x + y;
+}
+int main()
+{
+	int a =10;
+	int b = 20;
+	//条件操作符
+	//exp1 ? exp2 : exp3; exp1为真执行exp2 为假执行exp3
+	//int max = (a > b ? a : b);
+	//printf("%d\n", max);
+	//下标引用操作符
+	//int arr[10] = { 0 };
+	//arr[3];//下标引用操作符
+	int sum= Add(a, b);//函数调用操作符
+	printf("%d\n", sum);
+	return 0;
+}
+
+typedef重新定义名称，当然重新定义后仍然可以使用原有的
+static修饰局部变量，不会被再次赋值，可以简化for循环，不能跨文件使用
+static修饰全局变量，改变了作用范围，只能在一个被使用的源文件中使用
+exturn声明外部符号
