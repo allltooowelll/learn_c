@@ -29,3 +29,49 @@ int main() {
    
     return 0;
 }
+
+取石头问题
+//数石头
+#include<stdio.h>
+#include <stdlib.h>
+#include<time.h>
+int main()
+{
+	srand((unsigned int)time(0));
+	int i = 0;//每堆石头中石头的个数
+	printf("每堆中石头的个数（每堆不超过100000000）：\n");
+	int arr[10000] = { 0 };
+	while (1)
+	{
+		scanf_s("%d", &arr[i]);//输入数组
+		i++;//计算输入数据的个数
+		if (getchar() == '\n')//利用回车跳出循环 解决了输入问题  ：） 但若不输入数据后回车会出错
+		{
+			break;
+		}
+	}
+//开始取石头
+    int get = 0;
+	for (int t = 0; t < i; t++)
+	{
+		int take = rand() % arr[t] + 1;
+		int sum = 0;
+		for (int g = 0; sum <arr[t]; g++)
+		{
+			sum = sum + take;
+			while (sum < arr[t])
+			{
+				int take = rand() % (arr[t] - 0 + 1) - 0;
+				g++;
+			}
+			get = g; 
+		}
+	}
+	printf("%d", get);//取石头次数
+	int res = get % 2;
+	if (res != 0)
+		printf("YES");
+	else
+		printf("NO");
+	return 0;
+}
