@@ -381,6 +381,58 @@ int main()
 			m++;
 		}
 		printf("%d %d", m, n);
+7.24函数 以及初步了解指针
+字符串操作函数
+字符操作函数
+时间函数
+数学函数 sqrt开放 math.h
+strcpy
+strlen
+#include<string.h>
+#include<stdio.h>
+void exchange(int*px, int*py)//表示没有返回值
+{
+	int save = 0;
+	save =*px;
+	*px = *py;;
+	*py = save;;
+}
+int main()
+{
+	int a = 10;
+	int b = 20;
+	exchange(&a, &b);
+	printf("%d %d\n", a, b);
+	return 0;
+}//为什么要用指针？
+//在梦函数中将a b的值传给自定义函数exchange后，x y有自己的空间，无法从外部传到梦函数内部 因此需要用指针
+对比比大小的max函数 有return值 而exchange没有return值，初步理解为有return无指针
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int sum = 1;
+int nor = 0;
+int solution(int N) 
+{
+    for (int i = 2; i <= N; i++)
+    {
+        nor = i;
+        sum = sum ^ nor;
+    }
+    return sum;
+}
+
+int main() 
+{
+    int N;
+    scanf_s("%d", &N);
+
+    int fr=solution(N);
+    printf("%d\n", fr);
+    return 0;
+}
+
 
 	}
 	return 0;
