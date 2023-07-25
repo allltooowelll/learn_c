@@ -75,3 +75,21 @@ int main()
 		printf("NO");
 	return 0;
 }
+#include<stdio.h>
+int sum=1;
+int nor=0;
+int solution(int N)
+{
+for(int i=2;i<=N;i++)
+{
+    nor =i;
+    sum=sum^nor
+}
+}
+int main ()
+{
+      scanf_s(“%d”,&N);
+      int fs=solution(N);
+      printf(“%d\n”,fs);
+      return 0;
+}
