@@ -85,6 +85,7 @@ for(int i=2;i<=N;i++)
 {
     nor =i;
     sum=sum^nor
+    return sum;
 }
 }
 int main ()
