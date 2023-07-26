@@ -75,6 +75,7 @@ int main()
 		printf("NO");
 	return 0;
 }
+计算阶乘
 #include<stdio.h>
 int sum=1;
 int nor=0;
